@@ -1,0 +1,108 @@
+.page__content {
+  max-width: 1340px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.content {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+}
+
+.page__size {
+  padding: 50px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+.image__size {
+  max-width: 550px;
+  width: 100%;
+  box-shadow: 1px 1px 5px rgb(72, 68, 68);
+
+}
+
+@media (max-width: 1140px) {
+  .page__size {
+
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .page__size {
+
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+
+}
+
+@media (max-width: 570px) {
+  .page__size {
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+
+}
+
+@media (max-width: 455px) {
+
+  .page__size {
+    padding-left: 15px;
+    padding-right: 15px;
+
+
+  }
+}
+
+
+
+
+
+:root {
+  /* Header цвет */
+  --font-Header-color: #8A8B91;
+/* Promo цвет */
+--font3-color: #524F53;
+--back3-color: #FCF4EE;
+/* Advantage цвет */
+  --font1-Adv-color: #ECEAEE;
+  --font2-Adv-color: #585A6A;
+  --back-Adv-color: #181C30;
+/* present цвет */
+--font3-color: #524F53;
+--font2-Pres-color: #7E7B7C;
+--back-Pres-color: #FCF4EE;
+/* offers */
+--back2-color: #7B89A4;
+--back-Offers-color: #7B89A4;
+  --font1-color: #FEFEFE;
+  --font2-color: #DCDDE1;
+  --back1-color: #191E30;
+
+
+
+
+}
+
+/* --blue-color: #a0d1f4 */

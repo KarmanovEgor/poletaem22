@@ -1,0 +1,102 @@
+
+
+.promo__container{
+    background-image: url('../../img/promo.jpg');
+    /* background-position: left; */
+    max-width: 1240px;
+    width: 100%;
+    position: absolute;
+    padding-bottom: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    top: 0;
+left: 20;
+    z-index: 1;
+    opacity: 0; /* Начальное состояние: прозрачность 0 */
+    transform: translateY(120px); /* Начальное положение: сдвинут вниз */
+    transition: opacity 0.5s ease-in-out, transform 0.9s ease-in-out; /* Плавный переход */
+}
+
+.promo__container.visible {
+    opacity: 1; /* Конечное состояние: прозрачность 1 */
+    transform: translateY(0); /* Вернуть на место */
+}
+.promo__container.promo__container-visible{
+    opacity: 1; /* Конечное состояние: прозрачность 1 */
+    transform: translateY(0); /* Вернуть на место */
+}
+.promo__block {
+    max-width: 600px;
+    width: 100%;
+padding: 250px 0px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+}
+.promo__title {
+    font-size: 58px;
+    max-width: 1000px;
+    width: 100%;
+    color: var(--font1-color);
+    text-shadow: 2px 1px var(--font3-color);
+    margin-bottom: 0;
+}
+.promo__btn {
+    padding: 20px;
+    color: var(--font3-color);
+    background-color: var(--back3-color);
+    border: none;
+    border-radius: 61px;
+    align-self: flex-end;
+    max-width: 300px;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+.promo__btn:hover {
+    transform: scale(1.1);
+    border: 1px solid var(--back3-color);
+}
+@media (max-width: 1280px) {
+    .promo__container{
+        left: 0;
+    }
+}
+@media (max-width: 1040px) {
+    .promo__title {
+font-size: 42px;
+    }
+    .promo__block {
+padding: 200px 50px 50px 50px ;
+    }
+
+}
+@media (max-width: 848px) {
+
+            .promo__block {
+        padding: 150px 50px 50px 50px ;
+            }
+            .promo__container {
+                background-position: center;
+                align-items: center;
+
+            }
+            .promo__block{
+                padding: 550px 0 0 0;
+                align-items: center;
+                justify-content: center;
+            }
+            .promo__btn{
+                align-self: center;
+            }
+            .promo__title {
+                text-align: center;
+            }
+}

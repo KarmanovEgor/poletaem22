@@ -1,0 +1,96 @@
+.offers {
+    width: 100%;
+    position: relative;
+}
+.offers__title {
+    font-size: 34px;
+    background-color: var(--back-Offers-color);
+    color: var(--font1-Adv-color);
+    opacity: 0;
+transition: opacity 1.9s ease-in-out, transform 3.9s ease-in-out;
+}
+.offers__title-visible{
+    opacity: 1; 
+    
+}
+
+.offers__img {
+    max-width: 600px;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+.offers__block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  
+}
+.offers__block-item {
+    background-color: var(--back2-color);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    transition: transform 1.9s ease-in-out, opacity 1.2s ease-in-out;
+    opacity: 1; /* Убираем начальную прозрачность */
+    visibility: hidden; /* Скрываем элемент, но он остается в DOM */
+}
+
+/* Начальное положение для элементов, которые появляются слева */
+.offers__block-item.from-left {
+    transform: translateX(-50%); /* Начинаем за пределами экрана слева */
+    flex-direction: row-reverse;
+    background-color: var(--back1-color);
+}
+
+/* Начальное положение для элементов, которые появляются справа */
+.offers__block-item.from-right {
+    transform: translateX(50%); /* Начинаем за пределами экрана справа */
+}
+
+/* Анимация при появлении */
+.offers__block-item.visible {
+    visibility: visible; /* Делаем элемент видимым */
+    transform: translateX(0); /* Перемещаем в конечную позицию */
+    opacity: 1; /* Появляем элемент */
+}
+.offers__block-text {
+    max-width: 500px;
+    width: 100%;
+}
+.offers__block-title {
+    font-size: 34px;
+    color: var(--font1-Adv-color);
+}
+.offers__block-description {
+    color:var(--font2-color);
+    font-size: 17px;
+}
+.offers__btn {
+    background-color: transparent;
+    border: 2px solid var(--font1-Adv-color);
+    color: var(--font1-Adv-color);
+    padding: 15px 25px 15px 25px;
+    border-radius: 25px;
+    margin-top: 15px;
+    font-size: 17px;
+    font-weight: 700;
+    transition: transform 0.3s, filter 0.3s;
+    cursor: pointer;
+
+}
+.offers__btn:hover {
+    transform: scale(1.2); /* Увеличиваем размер изображения */
+    filter: brightness(110%); /* Подсвечиваем изображение */
+}
+
+@media (max-width: 900px) {
+    .offers__block-item {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+}
