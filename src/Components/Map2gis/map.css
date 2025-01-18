@@ -1,0 +1,26 @@
+.map {
+    width: 100%;
+    background-color: var(--back-Pres-color);
+}
+.map__container {
+    opacity: 0;
+transition: opacity 1.9s ease-in-out, transform 3.9s ease-in-out;
+}
+.map__container-visible {
+    opacity: 1;
+}
+.map__title {
+font-size: 32px;
+color: var(--font3-color);
+
+}
+.map__text {
+    padding-left: 50px;
+    color: var(--font3-color);  
+}
+.map__img {
+    object-fit: contain;
+    object-position:center;
+
+    width: 100%;
+}

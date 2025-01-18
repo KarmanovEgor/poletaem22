@@ -1,0 +1,22 @@
+.footer{
+    max-width: 1240px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+    height: 100px;
+   
+    
+}
+.footer__container {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 5px 27px 5px 27px;
+   
+    background-color: var(--back1-color);
+   
+    
+}

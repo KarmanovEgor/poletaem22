@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation} from "react-router-dom";
 import Header from "./Header/Header";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Popup from "./Popup/Popup";
@@ -11,17 +11,13 @@ import Offer from "./Offer/Offer";
 import { useIntersectionObserver } from "./hooks/HookObserve";
 import {
   helicopter,
+  moves,
   party,
   photosession,
   plane,
 } from "./Constanse/constOffers";
 import Map2GIS from "./Map2gis/Map2gis";
-// import Promo from './Promo/Promo';
-// import About from './About/About';
-// import Pictures from './Pictures/Pictures';
-// import PlateList from './PlateList/PlateList';
-// import Contacts from './Contacts/Contacts';
-// import Footer from './Footer/Footer';
+import Footer from './Footer/Footer';
 
 function App() {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
@@ -32,9 +28,11 @@ function App() {
   const [isAdv, setIsAdv] = useState(false);
   const [isPresent, setIsPresent] = useState(false);
   const [isOffers, setIsOffers] = useState(false);
+  const [isMap, setIsMap] = useState(false);
   const offersRef = useRef(null);
   const advantageRef = useRef(null);
   const presentRef = useRef(null);
+  const mapRef = useRef(null);
   const handleClick = (path) => {
     navigate(path);
   };
@@ -53,9 +51,10 @@ function App() {
     return () => clearTimeout(timer); // Очистка таймера при размонтировании
   }, []);
   // Используем кастомный хук для каждого элемента
-  useIntersectionObserver(advantageRef, 0.5, 900, isAdv, setIsAdv);
+  useIntersectionObserver(advantageRef, 0.1, 300, isAdv, setIsAdv);
   useIntersectionObserver(presentRef, 0.1, 300, isPresent, setIsPresent);
   useIntersectionObserver(offersRef, 0.1, 100, isOffers, setIsOffers);
+  useIntersectionObserver(mapRef, 0.1, 100, isMap, setIsMap);
 
 
   // скролинг с хедэра на разных маршрутах
@@ -110,6 +109,10 @@ function App() {
     return () => document.removeEventListener("keydown", handleESC);
   }, [isOpen, closePopup]);
 
+  const handlePromoClick = () => {
+    navigate('/plane');
+  };
+
   return (
     <div className="page__content">
       <Routes>
@@ -119,7 +122,7 @@ function App() {
             <>
               <Header openPopup={openPopup} />
 
-              <Promo isVisible={isVisible} />
+            <Promo isVisible={isVisible} handlePromoClick={handlePromoClick} />
               <main className="content">
                 <div ref={advantageRef}>
                   <Advantage isAdv={isAdv} />
@@ -137,10 +140,12 @@ function App() {
                     isOffers={isOffers}
                   />
                 </div>
-                <Map2GIS  />
+                <div ref={mapRef}>
+                <Map2GIS isMap={isMap} />
+                </div>
               </main>
 
-              {/* <Footer /> */}
+              <Footer />
               <Popup isOpen={isOpenPopup} onClose={closePopup} />
             </>
           }
@@ -153,7 +158,7 @@ function App() {
               <main className="content">
                 <Offer plane={plane} openPopup={openPopup} />
               </main>
-              {/* <Footer /> */}
+              <Footer />
               <Popup isOpen={isOpenPopup} onClose={closePopup} />
             </>
           }
@@ -166,7 +171,7 @@ function App() {
               <main className="content">
                 <Offer helicopter={helicopter} openPopup={openPopup} />
               </main>
-              {/* <Footer /> */}
+              <Footer />
               <Popup isOpen={isOpenPopup} onClose={closePopup} />
             </>
           }
@@ -179,7 +184,7 @@ function App() {
               <main className="content">
                 <Offer party={party} openPopup={openPopup} />
               </main>
-              {/* <Footer /> */}
+              <Footer />
               <Popup isOpen={isOpenPopup} onClose={closePopup} />
             </>
           }
@@ -192,7 +197,20 @@ function App() {
               <main className="content">
                 <Offer photosession={photosession} openPopup={openPopup} />
               </main>
-              {/* <Footer /> */}
+              <Footer />
+              <Popup isOpen={isOpenPopup} onClose={closePopup} />
+            </>
+          }
+        />
+                <Route
+          path="/moving"
+          element={
+            <>
+              <Header openPopup={openPopup} />
+              <main className="content">
+                <Offer mover={moves} openPopup={openPopup} />
+              </main>
+              <Footer />
               <Popup isOpen={isOpenPopup} onClose={closePopup} />
             </>
           }

@@ -15,7 +15,8 @@
     justify-content: flex-start;
     align-items: flex-start;
     top: 0;
-left: 20;
+ 
+
     z-index: 1;
     opacity: 0; /* Начальное состояние: прозрачность 0 */
     transform: translateY(120px); /* Начальное положение: сдвинут вниз */
@@ -66,7 +67,7 @@ padding: 250px 0px 50px 50px;
 }
 @media (max-width: 1280px) {
     .promo__container{
-        left: 0;
+    left: 0;
     }
 }
 @media (max-width: 1040px) {

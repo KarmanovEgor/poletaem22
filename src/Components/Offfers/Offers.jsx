@@ -42,7 +42,7 @@ export default function Offers({ handleClick, openPopup, isVisible }) {
   }, [visibleCards]);
 
   return (
-    <section ref={sectionRef} className="offers">
+    <section ref={sectionRef} className="offers" id="offers">
       <div className="offers__container">
         <h2 className={`offers__title ${isVisible ? "offers__title-visible" : ""} page__size`}>
           Наши головокружительные предложения

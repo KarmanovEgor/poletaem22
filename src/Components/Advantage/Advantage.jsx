@@ -3,7 +3,7 @@ import "./Advantage.css";
 
 export default function Advantage({ isAdv, ref}) {
   return (
-    <section ref={ref} className="advantage">
+    <section ref={ref} className="advantage" id="about">
       <div
         className={`advantage__container ${
           isAdv ? "opacity__container-visible" : ""

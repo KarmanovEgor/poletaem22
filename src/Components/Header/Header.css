@@ -30,7 +30,7 @@
   width: 121px;
   background-position: center;
   height: 50px;
-  /* background-image: url("../../images/lg.png"); */
+  background-image: url("../../../public/logo.jpg");
   transition: opacity .3s linear;
   background-size: contain;
   background-repeat: no-repeat;
@@ -101,17 +101,9 @@ select {
   .header__container {
     width: calc(320px + (708 - 320) * ((100vw - 320px)/(768 - 320)));
     padding: 0;
+    justify-content: space-between;
+    padding: 20px 20px 0px 20px;
   }
-
-  /* .header__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 33%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0);
-    z-index: 9;
-  } */
 
   .header__overlay {
     display: none;
@@ -145,7 +137,7 @@ select {
     font-size: 18px;
     line-height: 22px;
     opacity: 0;
-    background-color: var(--blue-color);
+    background-color: var(--back-Offers-color);
     text-align: center;
     top: 0;
     left: 67%;

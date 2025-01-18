@@ -24,6 +24,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    background-color:var(--back2-color); 
 }
 .offer__img, .offers__detail-img {
     max-width: 600px;
@@ -66,9 +67,44 @@
     background-color: transparent;
     border: 2px solid var(--font1-Adv-color);
     color: var(--font1-Adv-color);
+    max-width: 240px;
     padding: 15px 25px 15px 25px;
     border-radius: 25px;
     margin-top: 15px;
     font-size: 17px;
     font-weight: 700;
+    transition: transform 0.3s, filter 0.3s;
+    cursor: pointer;
+}
+.offer__button-click:hover {
+    transform: scale(1.2); /* Увеличиваем размер изображения */
+    filter: brightness(110%); /* Подсвечиваем изображение */
+}
+
+.offer__block-second {
+    background-color: var(--back2-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.offer__prices-other {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--font1-Adv-color);
+}
+
+
+@media (max-width: 900px) {
+    .offer__block-first, .offer__detail-card {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        align-items: center;
+    }
+
 }

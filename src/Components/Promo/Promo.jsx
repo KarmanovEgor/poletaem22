@@ -2,7 +2,7 @@
 import "./Promo.css";
 
 
-export default function Promo({isVisible}) {
+export default function Promo({isVisible, handlePromoClick}) {
 
   
     return (
@@ -10,7 +10,7 @@ export default function Promo({isVisible}) {
         <div className={`promo__container ${isVisible ? 'promo__container-visible' : ''}`}>
           <div className="promo__block">
             <h1 className="promo__title">Полеты на частном самолете в Барнауле</h1>
-            <button className="promo__btn" type="">
+            <button className="promo__btn" type="button" onClick={handlePromoClick}>
               Подробнее
             </button>
           </div>

@@ -1,7 +1,14 @@
 import { useLocation } from "react-router-dom";
 import "./Offer.css";
 
-export default function Offer({ plane, helicopter, photosession, party, openPopup }) {
+export default function Offer({
+  plane,
+  helicopter,
+  photosession,
+  party,
+  mover,
+  openPopup,
+}) {
   const location = useLocation();
 
   const dataMap = {
@@ -9,7 +16,9 @@ export default function Offer({ plane, helicopter, photosession, party, openPopu
     "/helicopter": helicopter,
     "/party": party,
     "/photo": photosession,
+    "/moving": mover,
   };
+
   // Получаем данные в зависимости от текущего пути
   const data = dataMap[location.pathname] || {}; // Значение по умолчанию
   console.log(data);
@@ -18,7 +27,7 @@ export default function Offer({ plane, helicopter, photosession, party, openPopu
     <section className="offer">
       <h2 className="offer__title page__size">{data.title}</h2>
       <div className="offer__container">
-        <div className="offer__block-first">
+        <div className="offer__block-first page__size">
           {data.img ? (
             <img
               src={data.img}
@@ -27,7 +36,34 @@ export default function Offer({ plane, helicopter, photosession, party, openPopu
               className="offer__img"
             />
           ) : null}
-          <p className="offer__text page__size">{data.text}</p>
+          <div className="offer__block-text">
+            <p className="offer__text page__size">{data.text}</p>
+            {location.pathname !== "/plane" ? (
+              <div className="offer__prices-other">
+                {data.priceList && Array.isArray(data.priceList) && data.priceList.length > 0 ? (
+                  data.priceList.map((priceItem, priceIndex) => (
+                    <div key={priceIndex} className="offer__price-item">
+                      <p className="offer__time">{priceItem.time}</p>
+                      <p className="offer__price">{priceItem.price}</p>
+                    </div>
+                  ))
+                ) : (
+                  <div className="offer__price-item">
+                    <p className="offer__time">{data.priceList?.time}</p>
+                    <p className="offer__price">{data.priceList?.price}</p>
+                  </div>
+                )}
+                <button
+                  className="offer__button-click"
+                  type="button"
+                  name="calling"
+                  onClick={openPopup}
+                >
+                  НАПИШИТЕ НАМ!
+                </button>
+              </div>
+            ) : null}
+          </div>
         </div>
         <div className="offer__block-second">
           {location.pathname === "/plane" &&
@@ -35,7 +71,12 @@ export default function Offer({ plane, helicopter, photosession, party, openPopu
           data.detail.length > 0 ? (
             <div className="offer__details">
               {data.detail.map((item, index) => (
-                <div key={index} className={`offer__detail-card ${index % 2 === 0 ? 'side' : ''} page__size`}>
+                <div
+                  key={index}
+                  className={`offer__detail-card ${
+                    index % 2 === 0 ? "side" : ""
+                  } page__size`}
+                >
                   <img
                     src={item.planeImage}
                     alt={item.textPlane}
@@ -45,35 +86,27 @@ export default function Offer({ plane, helicopter, photosession, party, openPopu
                   <div className="offer__detail-block">
                     <h3>{item.textPlane}</h3> {/* Название самолета */}
                     <p>{item.description}</p> {/* Описание самолета */}
-                   
                     <div className="offer__prices">
-                    {item.priceList.map((priceItem, priceIndex) => (
-                      <div key={priceIndex} className="offer__price-item">
-                        <p className="offer__time">{priceItem.time}</p>
-                        <p className="offer__price">{priceItem.price}</p>
-                      </div>
-                    ))}
+                      {item.priceList.map((priceItem, priceIndex) => (
+                        <div key={priceIndex} className="offer__price-item">
+                          <p className="offer__time">{priceItem.time}</p>
+                          <p className="offer__price">{priceItem.price}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <button
+                      className="offer__button-click"
+                      type="button"
+                      name="calling"
+                      onClick={openPopup}
+                    >
+                      НАПИШИТЕ НАМ!
+                    </button>
                   </div>
-                  <button className="offer__button-click" type="button" name="calling" onClick={openPopup}>НАПИШИТЕ НАМ!</button>
-                  </div>
-              
                 </div>
               ))}
             </div>
-          ) : (
-            <div className="offer__prices">
-              {data.priceList &&
-                data.priceList.map((priceItem, priceIndex) => (
-                  <div key={priceIndex} className="offer__price-item">
-                    <p className="offer__time">{priceItem.time}</p>
-                    <p className="offer__price">{priceItem.price}</p>
-
-                  </div>
-                ))}
-
-            </div>
-          )}
-            <button className="offer__button-click" type="button" name="calling" onClick={openPopup}>НАПИШИТЕ НАМ!</button>
+          ) : null}
         </div>
       </div>
     </section>

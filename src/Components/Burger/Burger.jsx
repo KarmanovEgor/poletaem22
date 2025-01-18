@@ -19,7 +19,7 @@ const Burger = () => {
   }`}
 >
   <li className="header__links">
-    <a href="#plate" className="header__link"
+    <a href="#main" className="header__link"
     >
 Главная
     </a>

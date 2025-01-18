@@ -6,7 +6,8 @@ import yk18 from "../../img/yk.jpeg";
 import socata from "../../img/Scott.jpg";
 import photosessia from '../../img/session.jpg';
 import genderParty from '../../img/gparty.jpg';
-import helic from '../../img/helicopter.JPG'
+import helic from '../../img/helicopter.JPG';
+import moving from '../../img/delivery.JPG';
 
 const plane = {
   title: "Полеты на мировых легендах",
@@ -189,12 +190,12 @@ const helicopter = {
    },
    { 
     time: '45 минут',
-    price: '33000 рублей'
+    price: '49000 рублей'
     
    },
    { 
-    time: '30 минут',
-    price: '33000 рублей'
+    time: '60 минут',
+    price: '65000 рублей'
     
    }
   ]
@@ -219,6 +220,22 @@ const party = {
     title: 'Гендер пати',
     img: genderParty ,
     text: 'Устройте незабываемое Гендер-пати, которое запомнится вам и вашим гостям на всю жизнь! Наш самолет пронесется над вами запуская дым в воздухе, символизируя пол вашего будущего ребенка. Ваши друзья и семья будут в восторге от этого уникального мероприятия. ',
-    priceList: '13000 рублей'
-}
-export {plane, helicopter, photosession, party}
+    priceList: [
+      {
+        time: 'по договоренности',
+        price: '13000 рублей'
+      }
+    ]
+};
+const moves= {
+  title: 'Перегонка самолетов по России',
+  img: moving,
+  text: 'Устройте незабываемое Гендер-пати, которое запомнится вам и вашим гостям на всю жизнь! Наш самолет пронесется над вами запуская дым в воздухе, символизируя пол вашего будущего ребенка. Ваши друзья и семья будут в восторге от этого уникального мероприятия. ',
+  priceList: [
+    {
+      time: 'Расстояние - по договоренности',
+      price: 'Цена - по договоренности'
+    }
+  ]
+};
+export {plane, helicopter, photosession, party, moves}
