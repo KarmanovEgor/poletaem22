@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Burger from "../Burger/Burger";
 import "./Header.css";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 
 export default function Header({openPopup}) {
@@ -19,7 +19,7 @@ export default function Header({openPopup}) {
       className={`header page__header ${activeBurger ? "header_active" : ""} ${pathname=== '/' ? "header__color-none" : "header__color"}`}
     >
       <div className="header__container">
-        <div className="header__link-home"></div>
+      <Link to="/" className="header__link-home"></Link>
         <>
           <Burger
             activeBurger={activeBurger}

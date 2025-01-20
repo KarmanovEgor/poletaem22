@@ -1,5 +1,5 @@
 import remos from "../../img/Remos.jpeg";
-import a33 from "../../img/a33.jpeg";
+import a33 from "../../img/a33.jpg";
 import cessna from "../../img/cessna.jpg";
 import tecnam from "../../img/tecn.jpeg";
 import yk18 from "../../img/yk.jpeg";

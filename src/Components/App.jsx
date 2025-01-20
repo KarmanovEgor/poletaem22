@@ -44,6 +44,10 @@ function App() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0); // Прокручиваем страницу вверх при переходе в другой роут
+  }, [location.pathname]);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true); // Устанавливаем видимость через 100 мс
     }, 100); // Задержка перед началом анимации
