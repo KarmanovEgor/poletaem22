@@ -40,15 +40,17 @@ export default function Offer({
             <p className="offer__text page__size">{data.text}</p>
             {location.pathname !== "/plane" ? (
               <div className="offer__prices-other">
-                {data.priceList && Array.isArray(data.priceList) && data.priceList.length > 0 ? (
+                {data.priceList &&
+                Array.isArray(data.priceList) &&
+                data.priceList.length > 0 ? (
                   data.priceList.map((priceItem, priceIndex) => (
-                    <div key={priceIndex} className="offer__price-item">
+                    <div key={priceIndex} className="offer__price-item_list">
                       <p className="offer__time">{priceItem.time}</p>
                       <p className="offer__price">{priceItem.price}</p>
                     </div>
                   ))
                 ) : (
-                  <div className="offer__price-item">
+                  <div className="offer__price-item_list">
                     <p className="offer__time">{data.priceList?.time}</p>
                     <p className="offer__price">{data.priceList?.price}</p>
                   </div>
@@ -89,8 +91,13 @@ export default function Offer({
                     <div className="offer__prices">
                       {item.priceList.map((priceItem, priceIndex) => (
                         <div key={priceIndex} className="offer__price-item">
-                          <p className="offer__time">{priceItem.time}</p>
-                          <p className="offer__price">{priceItem.price}</p>
+                          <div className="offer__price-item_list">
+                            <p className="offer__time">{priceItem.time}</p>
+                            <p className="offer__price">{priceItem.price}</p>
+                          </div>
+                          <p className="offer__place">
+                            {priceItem.place || null}
+                          </p>
                         </div>
                       ))}
                     </div>

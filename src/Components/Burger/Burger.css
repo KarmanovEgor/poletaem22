@@ -16,7 +16,7 @@
 }
 @media screen and (max-width: 768px) {
   .burger {
-    position: relative;
+    position: fixed;
     cursor: pointer;
     display: block;
     width: 20px;
@@ -25,7 +25,8 @@
     margin: 0;
     background-color: transparent;
     margin-right: 6px;
-
+    top: 45px;
+z-index: 15;
   }
 
 
