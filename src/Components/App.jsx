@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, useNavigate, useLocation} from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Header from "./Header/Header";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Popup from "./Popup/Popup";
@@ -17,7 +17,7 @@ import {
   plane,
 } from "./Constanse/constOffers";
 import Map2GIS from "./Map2gis/Map2gis";
-import Footer from './Footer/Footer';
+import Footer from "./Footer/Footer";
 
 function App() {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
@@ -59,7 +59,6 @@ function App() {
   useIntersectionObserver(presentRef, 0.1, 300, isPresent, setIsPresent);
   useIntersectionObserver(offersRef, 0.1, 100, isOffers, setIsOffers);
   useIntersectionObserver(mapRef, 0.1, 100, isMap, setIsMap);
-
 
   // скролинг с хедэра на разных маршрутах
   useEffect(() => {
@@ -114,7 +113,7 @@ function App() {
   }, [isOpen, closePopup]);
 
   const handlePromoClick = () => {
-    navigate('/plane');
+    navigate("/plane");
   };
 
   return (
@@ -126,16 +125,19 @@ function App() {
             <>
               <Header openPopup={openPopup} />
 
-            <Promo isVisible={isVisible} handlePromoClick={handlePromoClick} />
+              <Promo
+                isVisible={isVisible}
+                handlePromoClick={handlePromoClick}
+              />
               <main className="content">
                 <div ref={advantageRef}>
                   <Advantage isAdv={isAdv} />
                 </div>
-               
+
                 <div ref={presentRef}>
                   <Present isPresent={isPresent} />
                 </div>
-                <div ref={offersRef}>
+                <div ref={offersRef} className="width__size">
                   <Offers
                     handleClick={handleClick}
                     openPopup={openPopup}
@@ -144,8 +146,8 @@ function App() {
                     isOffers={isOffers}
                   />
                 </div>
-                <div ref={mapRef}>
-                <Map2GIS isMap={isMap} />
+                <div ref={mapRef} className="width__size">
+                  <Map2GIS isMap={isMap} />
                 </div>
               </main>
 
@@ -206,7 +208,7 @@ function App() {
             </>
           }
         />
-                <Route
+        <Route
           path="/moving"
           element={
             <>

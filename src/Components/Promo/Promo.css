@@ -3,7 +3,7 @@
 .promo__container{
     background-image: url('../../img/promo.jpg');
     /* background-position: left; */
-    max-width: 1240px;
+    max-width: 1640px;
     width: 100%;
     position: absolute;
     padding-bottom: 100px;
@@ -15,7 +15,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     top: 0;
- 
+ left:0;
 
     z-index: 1;
     opacity: 0; /* Начальное состояние: прозрачность 0 */

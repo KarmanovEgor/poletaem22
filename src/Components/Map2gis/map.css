@@ -3,6 +3,7 @@
     background-color: var(--back-Pres-color);
 }
 .map__container {
+    width: 100%;
     opacity: 0;
 transition: opacity 1.9s ease-in-out, transform 3.9s ease-in-out;
 }

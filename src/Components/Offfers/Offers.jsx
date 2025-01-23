@@ -8,38 +8,39 @@ export default function Offers({ handleClick, openPopup, isVisible }) {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    const cardRefsCurrent = cardRefs.current; // Сохраняем текущее значение ref
+
     const observerCards = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const index = cardRefs.current.indexOf(entry.target);
+          const index = cardRefsCurrent.indexOf(entry.target);
           if (entry.isIntersecting && !visibleCards[index]) {
             setVisibleCards((prev) => {
-              if (prev[index]) return prev; // Не обновляем, если карточка уже видима
               const updated = [...prev];
               updated[index] = true;
               return updated;
             });
-            observerCards.unobserve(entry.target);
+            observerCards.unobserve(entry.target); // Прекращаем наблюдение после появления
           }
         });
       },
-      { threshold: 0.1 } //  порог видимости
+      { threshold: 0.1 } // Порог видимости
     );
 
-    cardRefs.current.forEach((card) => {
+    cardRefsCurrent.forEach((card) => {
       if (card) {
         observerCards.observe(card);
       }
     });
 
     return () => {
-      cardRefs.current.forEach((card) => {
+      cardRefsCurrent.forEach((card) => {
         if (card) {
           observerCards.unobserve(card);
         }
       });
     };
-  }, [visibleCards]);
+  }, [visibleCards]); // Зависимость от visibleCards
 
   return (
     <section ref={sectionRef} className="offers" id="offers">
